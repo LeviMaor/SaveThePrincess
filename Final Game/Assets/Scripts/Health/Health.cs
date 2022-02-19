@@ -13,7 +13,10 @@ public class Health : MonoBehaviour
     [SerializeField] private float iFrameDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spritRenderer;
-    
+
+    [Header("Components")]
+    [SerializeField] private Behaviour[] components;
+    private bool invulnerable;
 
     private void Awake()
     {
@@ -35,7 +38,11 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
-                GetComponent<PlayerMovement>().enabled = false;
+               
+                foreach(Behaviour component in components)
+                {
+                    component.enabled = false;
+                }
                 dead = true;
             }
         }
