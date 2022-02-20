@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
+
+   
     [Header ("Health")]
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
@@ -44,6 +47,11 @@ public class Health : MonoBehaviour
                     component.enabled = false;
                 }
                 dead = true;
+
+                if (tag == "Player")
+                    SceneManager.LoadScene("LoseScreen");
+
+
             }
         }
 
@@ -66,5 +74,10 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(iFrameDuration / (numberOfFlashes * 2));
         }
         Physics2D.IgnoreLayerCollision(10, 11, false);
+    }
+
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 }

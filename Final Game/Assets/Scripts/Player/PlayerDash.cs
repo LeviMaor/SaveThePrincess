@@ -14,13 +14,14 @@ public class PlayerDash : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
+        
     }
 
     private void Update()
     {
         if (direction == 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKeyDown(KeyCode.Z))
             {
                 direction = 1;
             }

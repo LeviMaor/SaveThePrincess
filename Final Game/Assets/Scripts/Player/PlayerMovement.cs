@@ -1,17 +1,17 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D body;
-    [SerializeField] private float speed;
+    public float speed;
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
     private BoxCollider2D boxCollider;
     private float wallJumpCoolDown;
     private float horizontalInput;
-   
+    private bool jumpBtnDown;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
+  /*  private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }*/
     private void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -65,6 +69,11 @@ public class PlayerMovement : MonoBehaviour
         {
             wallJumpCoolDown += Time.deltaTime;
         }
+
+      /*  if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
+        {
+            body.velocity = new Vector2(body.velocity.x, 0);
+        }*/
     }
 
     private void Jump()
@@ -78,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(horizontalInput == 0)
             {
-                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0);
+                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 8, 8);
             }
             else
             {
@@ -109,5 +118,14 @@ public class PlayerMovement : MonoBehaviour
     {
         // return horizontalInput == 0 && isGrounded() && !onWall();
         return true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    { 
+
+        if (collision.gameObject.tag == "Princes")
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
     }
 }

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Heart
+  - LevelLoader
+  - Wall
+  - Princes
   layers:
   - Default
   - TransparentFX
