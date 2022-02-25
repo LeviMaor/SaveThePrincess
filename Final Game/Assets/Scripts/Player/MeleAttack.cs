@@ -3,21 +3,29 @@ using UnityEngine;
 
 public class MeleAttack : MonoBehaviour
 {
-
+    [SerializeField] private float attackCooldown;
     public Animator anim;
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public float attackDamamge;
+    private PlayerMovement playerMovement;
+    private float cooldownTimer = Mathf.Infinity;
+
+    private void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
     private void Update()
 
        
     {
 
-        if (Input.GetKeyDown(KeyCode.X))
+         if (Input.GetKeyDown(KeyCode.X) && cooldownTimer > attackCooldown && playerMovement.canAttack())
         {
             SwordAttack();
         }
+        cooldownTimer += Time.deltaTime;
     }
 
     void SwordAttack()
@@ -28,6 +36,7 @@ public class MeleAttack : MonoBehaviour
         {
             enemy.GetComponent<Health>().TakeDamage(attackDamamge);
         }
+        cooldownTimer = 0;
     }
 
     private void OnDrawGizmosSelected()

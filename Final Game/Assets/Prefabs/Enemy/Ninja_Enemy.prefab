@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5642e01e24fef994982d719257db5e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCoolDown: 4
+  attackCoolDown: 0
   range: 1
   colliderDistance: 1
   damage: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ccc0e21c49cca4a9b8f2e56f1fc33e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 25
   iFrameDuration: 1
   numberOfFlashes: 3
   components:

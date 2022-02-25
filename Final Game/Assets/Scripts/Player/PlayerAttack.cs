@@ -2,14 +2,13 @@
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
-{
-   [SerializeField] private float attackCooldown;
+{   
    [SerializeField] private float fireAttackCooldown;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
     private Animator anim;
     private PlayerMovement playerMovement;
-   // private float cooldownTimer = Mathf.Infinity;
+   
     private float fireCooldownTimer = Mathf.Infinity;
 
     private void Awake()
@@ -25,12 +24,7 @@ public class PlayerAttack : MonoBehaviour
             FireBallAttack();
         }
 
-       // if (Input.GetKeyDown(KeyCode.X) && cooldownTimer > attackCooldown && playerMovement.canAttack())
-        //{
-        //    SwordAttack();
-        //}
-
-        //cooldownTimer += Time.deltaTime;
+       
         fireCooldownTimer += Time.deltaTime;
        
     }
@@ -45,13 +39,7 @@ public class PlayerAttack : MonoBehaviour
         fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
 
-   // private void SwordAttack()
-   // {
-    //    anim.SetTrigger("attack");
-    //    cooldownTimer = 0;
-
-        
-   // }
+ 
 
     private int FindFireball()
     {
