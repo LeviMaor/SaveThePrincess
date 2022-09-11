@@ -1,5 +1,5 @@
 # FinalGame
-The Final Game
+<h1>The Final Game</h1>
 <h3>Controllers:</h3>
 <h4>Movement- Arrow keys</h4>
 <h4>Dash- 'Z'</h4>
