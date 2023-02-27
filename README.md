@@ -1,5 +1,5 @@
-# FinalGame
-<h1>The Final Game</h1>
+# SaveThePrincess
+<h1>Save The Princess</h1>
 <h2>A short fighting game implemented using Unity and C#</h2>
 <h3>Controllers:</h3>
 <h4>Movement- Arrow keys</h4>
