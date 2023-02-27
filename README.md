@@ -1,4 +1,3 @@
-# SaveThePrincess
 <h1>Save The Princess</h1>
 <h2>A short fighting game implemented using Unity and C#</h2>
 <h3>Controllers:</h3>
